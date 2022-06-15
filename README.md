@@ -7,4 +7,4 @@ Planned features:
 - Multiple differentes levels with different bullet patterns
 - Main menu between games
 
-![dodgy_screenshot](https://user-images.githubusercontent.com/106278405/173901793-fcc23ab4-81b1-4675-902f-0fb9dc4c973f.png)
+![2022-06-15 15-49-55(1)](https://user-images.githubusercontent.com/106278405/173903503-43febe80-a8b0-499a-ad55-e599f8c47242.gif)
