@@ -1,5 +1,5 @@
 html {
-    cursor: auto;
+    cursor: none;
     background-color: whitesmoke;
 }
 
@@ -29,11 +29,3 @@ html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: green;
 }
-
-.playAgain {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 80px;
-    position: absolute;
-    left: 450px;
-    top: 200px;
-  }

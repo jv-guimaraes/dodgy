@@ -89,8 +89,7 @@ function updateEnemies() {
             enemy.update();
             if ( collides(enemy, player) ) {
                 player.colliding = true;
-                player.hp -= 5;
-                if (player.hp <= 0) goToMenu();
+                player.hp -= 3;
             }
         }
     }
@@ -106,25 +105,10 @@ function updateHp() {
     }
 }
 
-function goToMenu() {
-    gameState = 1;
-    clearInterval(enemySpawnerId);
-    for (let i = 0; i < enemies.length; i++) {
-        enemies[i].element.remove();
-        enemies[i].dead = true;
-    }
-}
-
-function goToGame() {
-    alert("GAME!");
-}
-
 function gameLoop() {
-    if (gameState == 0) {
-        player.update();
-        updateEnemies();
-        updateHp();
-    }
+    player.update();
+    updateEnemies();
+    updateHp();
 }
 
 /* GLOBAL VARIABLES */
