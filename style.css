@@ -1,0 +1,39 @@
+html {
+    cursor: auto;
+    background-color: whitesmoke;
+}
+
+.player {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    border-radius: 50%;
+    background-color:royalblue;
+}
+
+.enemy {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50%;
+    background-color:darkorange;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+.hp {
+    font-size: 70px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: green;
+}
+
+.playAgain {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 80px;
+    position: absolute;
+    left: 450px;
+    top: 200px;
+  }
