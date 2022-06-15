@@ -6,3 +6,5 @@ Planned features:
 - Saving scores in local storage
 - Multiple differentes levels with different bullet patterns
 - Main menu between games
+
+![dodgy_screenshot](https://user-images.githubusercontent.com/106278405/173901793-fcc23ab4-81b1-4675-902f-0fb9dc4c973f.png)
