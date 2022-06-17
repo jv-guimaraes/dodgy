@@ -1,6 +1,7 @@
 class Player {
     constructor() {
         this.element = document.querySelector(".player");
+        this.element = document.createElement("div");
         this.pos = vec(0 ,0);
         this.rect = this.element.getBoundingClientRect();
         this.width = this.rect.width;
