@@ -25,6 +25,7 @@ class Player {
             this.hp -= 3;
             if (this.hp <= 0) {
                 player.dead = true;
+                player.colliding = false;
                 endGame();
             }
         } else {
@@ -72,6 +73,8 @@ function spawnEnemy(pos, dir, speed) {
 }
 
 function spawnEnemies() {
+    if (player.dead) return;
+
     let pos = vec( rand(0, window.innerWidth), 0 );
     let dir = vec(0, 1);
     spawnEnemy(pos, dir, 12);
@@ -129,12 +132,21 @@ function killEnemies() {
         enemy.element.remove()
     });
     enemies = [];
-    clearInterval(enemySpawnerId);
 }
 
 function endGame() {
     player.element.hidden = true;
     killEnemies();
+    playAgainButton.hidden = false;
+    document.querySelector("html").style.cursor = "pointer";
+}
+
+function restartGame() {
+    player.dead = false;
+    player.element.hidden = false;
+    player.hp = 100;
+    playAgainButton.hidden = true;
+    timer.time = 0; timer.element.innerHTML = timer.time;
 }
 
 function gameLoop() {
@@ -148,9 +160,11 @@ let player = new Player();
 let enemies = [];
 let hp = document.querySelector(".hp");
 let timer = {element: document.querySelector(".timer"), time: 0}; timer.element.innerHTML = 0;
+let playAgainButton = document.querySelector(".playAgainButton");
 /*-----------------------------------------*/
 
 window.addEventListener("mousemove", (event)=>{player.updatePos(event.clientX, event.clientY)});
+playAgainButton.addEventListener("click", restartGame);
 setInterval(gameLoop, 16);
-let enemySpawnerId = setInterval(spawnEnemies, 225);
+setInterval(spawnEnemies, 225);
 setInterval(updateTimer, 1000);

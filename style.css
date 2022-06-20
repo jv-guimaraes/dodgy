@@ -37,3 +37,10 @@ html {
     position: absolute;
     top: 40px;
 }
+
+.playAgainButton {
+    font-size: 100px;
+    padding: 50px;
+    text-align: center;
+    margin-top: 75px;
+}
