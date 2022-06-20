@@ -116,8 +116,6 @@ function gameLoop() {
 let player = new Player();
 let enemies = [];
 let hp = document.querySelector(".hp");
-let gameState = 0;
-let playAgain = document.querySelector(".playAgain");
 /*-----------------------------------------*/
 
 window.addEventListener("mousemove", (event)=>{player.updatePos(event.clientX, event.clientY)});
