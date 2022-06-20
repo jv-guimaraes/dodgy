@@ -105,6 +105,11 @@ function updateHp() {
     }
 }
 
+function updateTimer() {
+    timer.time++;
+    timer.element.innerHTML = timer.time;
+}
+
 function gameLoop() {
     player.update();
     updateEnemies();
@@ -115,8 +120,10 @@ function gameLoop() {
 let player = new Player();
 let enemies = [];
 let hp = document.querySelector(".hp");
+let timer = {element: document.querySelector(".timer"), time: 0}; timer.element.innerHTML = 0;
 /*-----------------------------------------*/
 
 window.addEventListener("mousemove", (event)=>{player.updatePos(event.clientX, event.clientY)});
 setInterval(gameLoop, 16);
-let enemySpawnerId = setInterval(spawnEnemies, 250);
+setInterval(spawnEnemies, 225);
+setInterval(updateTimer, 1000);
