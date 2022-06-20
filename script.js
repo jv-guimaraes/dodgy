@@ -147,6 +147,7 @@ function restartGame() {
     player.hp = 100;
     playAgainButton.hidden = true;
     timer.time = 0; timer.element.innerHTML = timer.time;
+    document.querySelector("html").style.cursor = "none";
 }
 
 function gameLoop() {
