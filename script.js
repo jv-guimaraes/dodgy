@@ -10,6 +10,7 @@ class Player {
     }
 
     updatePos(x, y) {
+        if (player.dead) return;
         this.pos.x = x - this.width / 2;
         this.pos.y = y - this.height / 2;
         this.element.style.left = this.pos.x + "px";
@@ -17,8 +18,15 @@ class Player {
     }
 
     update() {
+        if (player.dead) return;
+
         if (this.colliding) {
             this.element.style.backgroundColor = "red";
+            this.hp -= 3;
+            if (this.hp <= 0) {
+                player.dead = true;
+                endGame();
+            }
         } else {
             this.element.style.backgroundColor = "royalblue";
         }
@@ -79,6 +87,8 @@ function spawnEnemies() {
 }
 
 function updateEnemies() {
+    if (player.dead) return;
+
     player.colliding = false;
     for (let i = 0; i < enemies.length; i++) {
         const enemy = enemies[i];
@@ -89,14 +99,17 @@ function updateEnemies() {
             enemy.update();
             if ( collides(enemy, player) ) {
                 player.colliding = true;
-                player.hp -= 3;
             }
         }
     }
 }
 
-function updateHp() {
-    if (player.colliding) {
+function updateHpElement() {
+    if (player.dead) {
+        hp.style.color = "grey";
+        hp.innerHTML = "HP: " + player.hp;
+    }
+    else if (player.colliding) {
         hp.style.color = "red";
         hp.innerHTML = "HP: " + player.hp + "!!!";
     } else {
@@ -106,14 +119,28 @@ function updateHp() {
 }
 
 function updateTimer() {
+    if (player.dead) return;
     timer.time++;
     timer.element.innerHTML = timer.time;
+}
+
+function killEnemies() {
+    enemies.forEach(enemy => {
+        enemy.element.remove()
+    });
+    enemies = [];
+    clearInterval(enemySpawnerId);
+}
+
+function endGame() {
+    player.element.hidden = true;
+    killEnemies();
 }
 
 function gameLoop() {
     player.update();
     updateEnemies();
-    updateHp();
+    updateHpElement();
 }
 
 /* GLOBAL VARIABLES */
@@ -125,5 +152,5 @@ let timer = {element: document.querySelector(".timer"), time: 0}; timer.element.
 
 window.addEventListener("mousemove", (event)=>{player.updatePos(event.clientX, event.clientY)});
 setInterval(gameLoop, 16);
-setInterval(spawnEnemies, 225);
+let enemySpawnerId = setInterval(spawnEnemies, 225);
 setInterval(updateTimer, 1000);
