@@ -26,6 +26,7 @@ class Player {
             if (this.hp <= 0) {
                 player.dead = true;
                 player.colliding = false;
+                player.hp = 0;
                 endGame();
             }
         } else {
