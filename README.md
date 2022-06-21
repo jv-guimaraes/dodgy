@@ -5,6 +5,6 @@ This was made through trial and error and without any javascript or web dev know
 Planned features:
 - Saving scores in local storage
 - Multiple differentes levels with different bullet patterns
-- Main menu between games
+- Main menu between games (instead of just a play again screen)
 
-![2022-06-15 15-49-55(1)](https://user-images.githubusercontent.com/106278405/173903503-43febe80-a8b0-499a-ad55-e599f8c47242.gif)
+![gifversion](https://user-images.githubusercontent.com/106278405/174894245-da561fa3-02ef-4972-83ae-bdb54ce54216.gif)
